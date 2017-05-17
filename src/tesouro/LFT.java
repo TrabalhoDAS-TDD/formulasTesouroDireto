@@ -3,6 +3,8 @@ package tesouro;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.Date;
+import java.util.HashMap;
 
 public class LFT {
 
@@ -26,5 +28,9 @@ public class LFT {
 
     public double getTaxaDivulgada() {
         return taxaDivulgada;
+    }
+
+    public double calculaFatorC(HashMap<Date, Double> dataSelic) {
+        return 0;
     }
 }
