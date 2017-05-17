@@ -38,4 +38,8 @@ public class LFT {
         BigDecimal bigDecimalValue = new BigDecimal(fatorC);
         return bigDecimalValue.setScale(TSELIC_TC_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
+
+    public double calculaVNA(double vnb, HashMap fatorCDataBase) {
+        return 0;
+    }
 }
