@@ -55,8 +55,13 @@ public class LFT {
 
     }
 
+
+
     public void setVNB(double VNB) {
         this.VNB = VNB;
     }
 
+    public double calculaVNAA() {
+        return 0;
+    }
 }
