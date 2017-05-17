@@ -1,11 +1,10 @@
 package tesouro;
 
-
-import java.math.BigDecimal;
-
 public class LFT {
 
-    public BigDecimal calculaTaxaSelicDoDia(BigDecimal taxaDivulgada) {
-        return new BigDecimal(11.25);
+    public double calculaTaxaSelicDoDia(double taxaDivulgada) {
+
+        double taxaSelic = Math.pow(((taxaDivulgada/100) + 1), (1/252)) - 1;
+        return taxaSelic;
     }
 }
