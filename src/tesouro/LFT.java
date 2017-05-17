@@ -15,10 +15,9 @@ public class LFT {
         setTaxaDivulgada(taxaDivulgada);
         double taxaDivulgadaPerCentPlus = (getTaxaDivulgada()/100) + 1;
         double expoente = new BigDecimal(1).divide(new BigDecimal(252), new MathContext(100)).doubleValue();
-        return Math.pow(taxaDivulgadaPerCentPlus, expoente) - 1;
+        BigDecimal taxaSelic = new BigDecimal(Math.pow(taxaDivulgadaPerCentPlus, expoente) - 1);
+        return taxaSelic.setScale(TAXA_SELIC_DO_DIA_PRECISION, BigDecimal.ROUND_FLOOR).doubleValue();
     }
-
-
 
     public void setTaxaDivulgada(double taxaDivulgada) {
         BigDecimal bigDecimalValue = new BigDecimal(taxaDivulgada);
