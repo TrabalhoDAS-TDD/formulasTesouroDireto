@@ -8,6 +8,7 @@ import org.junit.Test;
 public class BTNTest {
 	
 	BTN btn;
+	private static final double PRECISION_PU = 0.01;
 
 	@Before
 	public void setUp() throws Exception {
@@ -16,8 +17,8 @@ public class BTNTest {
 
 	@Test
 	public void test() {
-		double precoUnitario = btn.calculaPrecoUnitario(200, 1.5);
-		assertEquals(300, precoUnitario, 0.0001);
+		double precoUnitario = btn.calculaPrecoUnitario(2456.23423423, 0.0764);
+		assertEquals(187.656295, precoUnitario, PRECISION_PU);
 	}
 
 }
