@@ -49,6 +49,13 @@ public class LFTTest {
         assertEquals(fatorC, 1.000882699898792, PRECISION8);
     }
 
+    @Test
+    public void calculaVNANotNullTest() throws ParseException {
+        double VNB = 1.000231232;
+        HashMap fatorCDataBase = getDataSelic();
+        assertNotNull(lft.calculaVNA(VNB, fatorCDataBase));
+    }
+
     public HashMap<Date, Double> getDataSelic() throws ParseException {
         HashMap<Date, Double> dataSelics = new HashMap<>();
         Date data1 = new SimpleDateFormat("dd-MM-yyyy").parse("16-05-2017");
