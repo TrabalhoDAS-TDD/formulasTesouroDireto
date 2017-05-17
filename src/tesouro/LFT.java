@@ -10,7 +10,9 @@ public class LFT {
 
     private static int TAXA_DIVULGADA_PRECISION = 2;
     private static int TSELIC_TC_PRECISION = 8;
-    double taxaDivulgada;
+    private static int VNA_VNB_PRECISION = 6;
+    private double taxaDivulgada;
+    private double VNB;
 
 
     public double calculaTaxaSelicDoDia(double taxaDivulgada) {
@@ -18,7 +20,7 @@ public class LFT {
         double taxaDivulgadaPerCentPlus = (getTaxaDivulgada()/100) + 1;
         double expoente = new BigDecimal(1).divide(new BigDecimal(252), new MathContext(100)).doubleValue();
         BigDecimal taxaSelic = new BigDecimal(Math.pow(taxaDivulgadaPerCentPlus, expoente) - 1);
-        return taxaSelic.setScale(TSELIC_TC_PRECISION, BigDecimal.ROUND_FLOOR).doubleValue();
+        return taxaSelic.setScale(TSELIC_TC_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
 
     public void setTaxaDivulgada(double taxaDivulgada) {
@@ -42,7 +44,15 @@ public class LFT {
     public double calculaVNA(double VNB, HashMap fatorCDataBase) {
 
         double fatorC = calculaFatorC(fatorCDataBase);
-        return VNB * fatorC;
+        BigDecimal bigDecimalVNB = new BigDecimal(VNB);
+        setVNB(bigDecimalVNB.setScale(VNA_VNB_PRECISION, RoundingMode.FLOOR).doubleValue());
+        double VNA = VNB * fatorC;
+        BigDecimal bigDecimalValueVNA = new BigDecimal(VNA);
+        return bigDecimalValueVNA.setScale(VNA_VNB_PRECISION, RoundingMode.FLOOR).doubleValue();
 
+    }
+
+    public void setVNB(double VNB) {
+        this.VNB = VNB;
     }
 }
