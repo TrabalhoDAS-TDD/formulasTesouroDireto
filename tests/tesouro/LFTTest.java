@@ -4,7 +4,11 @@ package tesouro;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -34,7 +38,19 @@ public class LFTTest {
         assertEquals(taxaSelicDia, 0.000423141235133, PRECISION8);
     }
 
+    @Test
+    public void calculaFatorCNotNullTest() throws ParseException {
+        assertNotNull(lft.calculaFatorC(getDataSelic()));
+    }
 
+    public HashMap<Date, Double> getDataSelic() throws ParseException {
+        HashMap<Date, Double> dataSelics = new HashMap<>();
+        Date data1 = new SimpleDateFormat("dd-MM-yyyy").parse("16-05-2017");
+        Date data2 = new SimpleDateFormat("dd-MM-yyyy").parse("17-05-2017");
 
+        dataSelics.put(data1, 11.212313121);
+        dataSelics.put(data2, 12.312312313);
+        return  dataSelics;
+    }
 
 }
