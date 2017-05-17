@@ -16,8 +16,8 @@ public class BTNTest {
 
 	@Test
 	public void test() {
-		long precoUnitario = btn.calculaPrecoUnitario();
-		assertEquals(0, precoUnitario);
+		double precoUnitario = btn.calculaPrecoUnitario();
+		assertEquals(0, precoUnitario, 0.1);
 	}
 
 }
