@@ -13,4 +13,9 @@ public class BTN {
 		return new BigDecimal(PUAtualizado).setScale(PRECO_UNITARIO_PRECISION, RoundingMode.FLOOR).doubleValue();
 		
 	}
+
+	public double calculaJuros() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
