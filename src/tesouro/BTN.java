@@ -2,8 +2,9 @@ package tesouro;
 
 public class BTN {
 	
-	public double calculaPrecoUnitario(){
-		return 0;
+	public double calculaPrecoUnitario(double PUAnterior, double TR){	
+		double PUAtualizado = PUAnterior * TR;
+		return PUAtualizado;
 	}
 
 }
