@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class LFT {
 
     private static int TAXA_DIVULGADA_PRECISION = 2;
-    private static int TAXA_SELIC_DO_DIA_PRECISION = 8;
+    private static int TSELIC_TC_PRECISION = 8;
     double taxaDivulgada;
 
 
@@ -18,7 +18,7 @@ public class LFT {
         double taxaDivulgadaPerCentPlus = (getTaxaDivulgada()/100) + 1;
         double expoente = new BigDecimal(1).divide(new BigDecimal(252), new MathContext(100)).doubleValue();
         BigDecimal taxaSelic = new BigDecimal(Math.pow(taxaDivulgadaPerCentPlus, expoente) - 1);
-        return taxaSelic.setScale(TAXA_SELIC_DO_DIA_PRECISION, BigDecimal.ROUND_FLOOR).doubleValue();
+        return taxaSelic.setScale(TSELIC_TC_PRECISION, BigDecimal.ROUND_FLOOR).doubleValue();
     }
 
     public void setTaxaDivulgada(double taxaDivulgada) {
@@ -35,6 +35,7 @@ public class LFT {
         for (Date data : dataSelic.keySet()){;
             fatorC *= (1 + calculaTaxaSelicDoDia(dataSelic.get(data)));
         }
-        return fatorC;
+        BigDecimal bigDecimalValue = new BigDecimal(fatorC);
+        return bigDecimalValue.setScale(TSELIC_TC_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
 }
