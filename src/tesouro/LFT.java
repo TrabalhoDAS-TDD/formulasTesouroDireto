@@ -31,6 +31,10 @@ public class LFT {
     }
 
     public double calculaFatorC(HashMap<Date, Double> dataSelic) {
-        return 0;
+        double fatorC = 1;
+        for (Date data : dataSelic.keySet()){;
+            fatorC *= (1 + calculaTaxaSelicDoDia(dataSelic.get(data)));
+        }
+        return fatorC;
     }
 }
