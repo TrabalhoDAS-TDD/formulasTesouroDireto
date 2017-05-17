@@ -17,7 +17,10 @@ public class LFTTest {
 
     LFT lft;
     private static final double PRECISION2 = 0.01;
-    private static final double PRECISION8 = 0.08;
+    private static final double PRECISION8 = 0.00000001;
+    private static final double PRECISION10 = 0.0000000001;
+    private static final double PRECISION6 = 0.000001;
+    private static final double VNB = 1.000231232;
 
     @Before
     public void setUp(){
@@ -34,8 +37,10 @@ public class LFTTest {
     public void calculaTaxaSelicDoDiaArredondamentoTest(){
         double taxaDivulgada = 0.112521200021523511;
         double taxaSelicDia = lft.calculaTaxaSelicDoDia(taxaDivulgada);
-        assertEquals(lft.getTaxaDivulgada(), 0.11, PRECISION2);
-        assertEquals(taxaSelicDia, 0.000423141235133, PRECISION8);
+        assertEquals(lft.getTaxaDivulgada(), 0.11123123123, PRECISION2);
+        assertNotEquals(lft.getTaxaDivulgada(), 0.11123123123, PRECISION6);
+        assertEquals(taxaSelicDia, 0.0000043698749274, PRECISION8);
+        assertNotEquals(taxaSelicDia, 0.0000043698749274, PRECISION10);
     }
 
     @Test
@@ -46,14 +51,22 @@ public class LFTTest {
     @Test
     public void calculaFatorCArredondamentoTest() throws ParseException {
         double fatorC = lft.calculaFatorC(getDataSelic());
+        assertNotEquals(fatorC, 1.000882699898792, PRECISION10);
         assertEquals(fatorC, 1.000882699898792, PRECISION8);
     }
 
     @Test
     public void calculaVNANotNullTest() throws ParseException {
-        double VNB = 1.000231232;
         HashMap fatorCDataBase = getDataSelic();
         assertNotNull(lft.calculaVNA(VNB, fatorCDataBase));
+    }
+
+    @Test
+    public void calculaVNAArredondamentoTest() throws ParseException {
+        HashMap fatorCDataBase = getDataSelic();
+        double VNA = lft.calculaVNA(VNB, fatorCDataBase);
+        assertNotEquals(VNA, 1.0011141261061742, PRECISION10);
+        assertEquals(VNA, 1.0011141261061742, PRECISION6);
     }
 
     public HashMap<Date, Double> getDataSelic() throws ParseException {
