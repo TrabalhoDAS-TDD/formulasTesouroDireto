@@ -13,6 +13,7 @@ public class LFTTest {
 
     LFT lft;
     private static final double PRECISION2 = 0.01;
+    private static final double PRECISION8 = 0.08;
 
     @Before
     public void setUp(){
@@ -27,9 +28,10 @@ public class LFTTest {
 
     @Test
     public void calculaTaxaSelicDoDiaArredondamentoTest(){
-        double taxaDivulgada = 11.2521200021523511;
+        double taxaDivulgada = 0.112521200021523511;
         double taxaSelicDia = lft.calculaTaxaSelicDoDia(taxaDivulgada);
-        assertEquals(lft.getTaxaDivulgada(), 11.25, PRECISION2);
+        assertEquals(lft.getTaxaDivulgada(), 0.11, PRECISION2);
+        assertEquals(taxaSelicDia, 0.000423141235133, PRECISION8);
     }
 
 
