@@ -39,7 +39,10 @@ public class LFT {
         return bigDecimalValue.setScale(TSELIC_TC_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
 
-    public double calculaVNA(double vnb, HashMap fatorCDataBase) {
-        return 0;
+    public double calculaVNA(double VNB, HashMap fatorCDataBase) {
+
+        double fatorC = calculaFatorC(fatorCDataBase);
+        return VNB * fatorC;
+
     }
 }
