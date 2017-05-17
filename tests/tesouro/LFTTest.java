@@ -29,7 +29,7 @@ public class LFTTest {
     public void calculaTaxaSelicDoDiaArredondamentoTest(){
         double taxaDivulgada = 11.2521200021523511;
         double taxaSelicDia = lft.calculaTaxaSelicDoDia(taxaDivulgada);
-        assertEquals(lft.getTaxaDivulgada(), taxaDivulgada, PRECISION2);
+        assertEquals(lft.getTaxaDivulgada(), 11.25, PRECISION2);
     }
 
 
