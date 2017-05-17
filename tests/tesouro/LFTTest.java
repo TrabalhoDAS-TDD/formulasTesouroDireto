@@ -43,6 +43,12 @@ public class LFTTest {
         assertNotNull(lft.calculaFatorC(getDataSelic()));
     }
 
+    @Test
+    public void calculaFatorCArredondamentoTest() throws ParseException {
+        double fatorC = lft.calculaFatorC(getDataSelic());
+        assertEquals(fatorC, 1.000882699898792, PRECISION8);
+    }
+
     public HashMap<Date, Double> getDataSelic() throws ParseException {
         HashMap<Date, Double> dataSelics = new HashMap<>();
         Date data1 = new SimpleDateFormat("dd-MM-yyyy").parse("16-05-2017");
