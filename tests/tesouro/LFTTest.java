@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 public class LFTTest {
 
     LFT lft;
+    private static final double PRECISION2 = 0.01;
 
     @Before
     public void setUp(){
@@ -20,8 +21,15 @@ public class LFTTest {
 
     @Test
     public void calculaTaxaSelicDoDiaNotNullTest(){
-        BigDecimal taxaDivulgada = new BigDecimal(11.25);
+        double taxaDivulgada = 11.25;
         assertNotNull(lft.calculaTaxaSelicDoDia(taxaDivulgada));
+    }
+
+    @Test
+    public void calculaTaxaSelicDoDiaArredondamentoTest(){
+        double taxaDivulgada = 11.2521200021523511;
+        double taxaSelicDia = lft.calculaTaxaSelicDoDia(taxaDivulgada);
+        assertEquals(lft.getTaxaDivulgada(), taxaDivulgada, PRECISION2);
     }
 
 
