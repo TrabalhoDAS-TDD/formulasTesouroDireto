@@ -70,8 +70,16 @@ public class LFTTest {
         assertEquals(VNA, 1.0011141261061742, PRECISION6);
     }
 
-    public void calculaVnaANotNullTest() {
-        assertNotNull(lft.calculaVNAA());
+    @Test
+    public void calculaVnaANotNullTest() throws ParseException {
+        double VE = 1.0003123123;
+        double DU = 2;
+        double DUt = 32;
+        double P = 1;
+        double N = 0;
+        double Tac = 0.0245;
+
+        assertNotNull(lft.calculaVNAA(getDataSelic(), VE, DU, DUt, Tac, P, N));
     }
 
     public HashMap<Date, Double> getDataSelic() throws ParseException {
