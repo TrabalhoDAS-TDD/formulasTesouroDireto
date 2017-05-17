@@ -6,6 +6,7 @@ import java.math.RoundingMode;
 import java.util.Date;
 import java.util.HashMap;
 
+
 public class LFT {
 
     private static int TAXA_DIVULGADA_PRECISION = 2;
@@ -15,12 +16,14 @@ public class LFT {
     private double VNB;
 
 
+
     public double calculaTaxaSelicDoDia(double taxaDivulgada) {
         setTaxaDivulgada(taxaDivulgada);
         double taxaDivulgadaPerCentPlus = (getTaxaDivulgada()/100) + 1;
         double expoente = new BigDecimal(1).divide(new BigDecimal(252), new MathContext(100)).doubleValue();
         BigDecimal taxaSelic = new BigDecimal(Math.pow(taxaDivulgadaPerCentPlus, expoente) - 1);
         return taxaSelic.setScale(TSELIC_TC_PRECISION, RoundingMode.FLOOR).doubleValue();
+
     }
 
     public void setTaxaDivulgada(double taxaDivulgada) {
@@ -55,4 +58,5 @@ public class LFT {
     public void setVNB(double VNB) {
         this.VNB = VNB;
     }
+
 }
