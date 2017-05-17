@@ -70,6 +70,10 @@ public class LFTTest {
         assertEquals(VNA, 1.0011141261061742, PRECISION6);
     }
 
+    public void calculaVnaANotNullTest() {
+        assertNotNull(lft.calculaVNAA());
+    }
+
     public HashMap<Date, Double> getDataSelic() throws ParseException {
         HashMap<Date, Double> dataSelics = new HashMap<>();
         Date data1 = new SimpleDateFormat("dd-MM-yyyy").parse("16-05-2017");
