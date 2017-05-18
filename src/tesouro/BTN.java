@@ -14,8 +14,20 @@ public class BTN {
 		
 	}
 
-	public double calculaJuros() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double calculaJuros(double PUAnterior, double TR, double taxaAoAno, double qtdMeses) {
+		
+		double precoUnitario = this.calculaPrecoUnitario(PUAnterior, TR);
+		double fatorJuros = this.calculaFatorJuros(taxaAoAno, qtdMeses);
+		
+		return precoUnitario*fatorJuros;
+	}
+	
+	private double calculaFatorJuros(double taxaAoAno, double qtdMeses){
+		
+		double fatorPercentPlusOne = new BigDecimal(taxaAoAno).divide(new BigDecimal(100)).doubleValue() + 1;
+		double expoente = qtdMeses/12;
+		double fatorJuros = Math.pow(fatorPercentPlusOne, expoente) - 1;
+		
+		return fatorJuros;
 	}
 }
