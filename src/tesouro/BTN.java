@@ -5,12 +5,12 @@ import java.math.RoundingMode;
 
 public class BTN {
 	
-	private static int PRECO_UNITARIO_PRECISION = 6;
 	
 	public double calculaPrecoUnitario(double PUAnterior, double TR){	
 	
-		double PUAtualizado = new BigDecimal(PUAnterior).setScale(PRECO_UNITARIO_PRECISION, RoundingMode.FLOOR).doubleValue() * TR;
-		return new BigDecimal(PUAtualizado).setScale(PRECO_UNITARIO_PRECISION, RoundingMode.FLOOR).doubleValue();
+		PUAnterior = new BigDecimal(PUAnterior).setScale(6, RoundingMode.FLOOR).doubleValue();
+		double PUAtualizado = PUAnterior * TR;
+		return new BigDecimal(PUAtualizado).setScale(6, RoundingMode.FLOOR).doubleValue();
 		
 	}
 
@@ -26,8 +26,8 @@ public class BTN {
 		
 		double fatorPercentPlusOne = new BigDecimal(taxaAoAno).divide(new BigDecimal(100)).doubleValue() + 1;
 		double expoente = qtdMeses/12;
-		double fatorJuros = Math.pow(fatorPercentPlusOne, expoente) - 1;
+		BigDecimal fatorJuros = new BigDecimal(Math.pow(fatorPercentPlusOne, expoente) - 1);
 		
-		return fatorJuros;
+		return fatorJuros.setScale(8, RoundingMode.CEILING).doubleValue();
 	}
 }
