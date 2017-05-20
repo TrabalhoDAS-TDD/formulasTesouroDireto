@@ -9,6 +9,7 @@ public class BTNTest {
 	
 	BTN btn;
 	private static final double PRECISION6 = 0.000001;
+	private static final double PRECISION8 = 0.00000001;
 
 	@Before
 	public void setUp() throws Exception {
@@ -23,9 +24,15 @@ public class BTNTest {
 	
 	@Test
 	public void calculaJurosTest(){
-		double juros = btn.calculaJuros(2456.23423423,  0.0764, 10.57, 5);
+		double juros = btn.calculaJuros(2456.23423423,  0.0764, 10.57, 6);
 		assertEquals(0.042754835219696, juros, PRECISION6);
 		
+	}
+	
+	@Test
+	public void calculaFatorJurosTest(){
+		double fatorJuros = btn.calculaFatorJuros(10.57, 6);
+		assertEquals(0.05152270541344, fatorJuros, PRECISION8);
 	}
 
 }
