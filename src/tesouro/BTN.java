@@ -25,7 +25,7 @@ public class BTN {
 	public double calculaFatorJuros(double taxaAoAno, int qtdMeses){
 		
 		double fatorPercentPlusOne = new BigDecimal(taxaAoAno).divide(new BigDecimal(100)).doubleValue() + 1;
-		double expoente = qtdMeses/12;
+		double expoente = (double)qtdMeses/12;
 		BigDecimal fatorJuros = new BigDecimal(Math.pow(fatorPercentPlusOne, expoente) - 1);
 		
 		return fatorJuros.setScale(8, RoundingMode.CEILING).doubleValue();
