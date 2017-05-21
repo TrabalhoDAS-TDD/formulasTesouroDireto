@@ -2,21 +2,25 @@ package tesouro;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Date;
+import java.util.HashMap;
 
 public class BTN {
 	
 	
-	public double calculaPrecoUnitario(double PUAnterior, double TR){	
-	
-		PUAnterior = new BigDecimal(PUAnterior).setScale(6, RoundingMode.FLOOR).doubleValue();
-		double PUAtualizado = PUAnterior * TR;
-		return new BigDecimal(PUAtualizado).setScale(6, RoundingMode.FLOOR).doubleValue();
+	public double calculaPrecoUnitario(HashMap<Date, Double> tr, double precoUnitario){
 		
+		for(Date data : tr.keySet()){
+			precoUnitario *= new BigDecimal(tr.get(data)).setScale(6, RoundingMode.FLOOR).doubleValue();
+		}
+		return precoUnitario;	
 	}
 
 	public double calculaJuros(double PUAnterior, double TR, double taxaAoAno, int qtdMeses) {
 		
 		double precoUnitario = this.calculaPrecoUnitario(PUAnterior, TR);
+		
+		
 		double fatorJuros = this.calculaFatorJuros(taxaAoAno, qtdMeses);
 		
 		return precoUnitario*fatorJuros;
