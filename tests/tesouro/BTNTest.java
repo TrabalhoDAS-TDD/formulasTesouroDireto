@@ -25,7 +25,7 @@ public class BTNTest {
 	@Test
 	public void calculaJurosTest(){
 		double juros = btn.calculaJuros(2456.23423423,  0.0764, 10.57, 6);
-		assertEquals(0.042754835219696, juros, PRECISION6);
+		assertEquals(9.668560031775195, juros, PRECISION6);
 		
 	}
 	
