@@ -24,7 +24,7 @@ public class NTNA6Test {
 	
 	@Test
 	public void calculaJurosTest(){
-		double juros = ntn.calculaJuros();
-		assertEquals(0, juros, PRECISION6);
+		double juros = ntn.calculaJuros(2.849, 2.512, 1098.07, "22-03-2017", "29-05-2017", 10.54);
+		assertEquals(24.79417540527792, juros, PRECISION6);
 	}
 }
