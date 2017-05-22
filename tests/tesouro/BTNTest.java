@@ -43,9 +43,9 @@ public class BTNTest {
 	}
 	
 	@Test
-	public void calculaPrincipalTest(){
-		double resultadoPrincipal = btn.calculaPrincipal();
-		assertEquals(0, resultadoPrincipal, PRECISION2);
+	public void calculaPrincipalTest() throws ParseException{
+		double resultadoPrincipal = btn.calculaPrincipal(getTrs(), 2456.23, 5);
+		assertEquals(29100.84, resultadoPrincipal, PRECISION2);
 	}
 	
 	public HashMap<Date, Double> getTrs() throws java.text.ParseException{
