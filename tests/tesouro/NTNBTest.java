@@ -22,4 +22,12 @@ public class NTNBTest {
         assertNotNull(ntnb.calculaFator(ipca, ipcai, dc, dct));
     }
 
+    @Test
+    public void calculaVNANotNullTest(){
+
+        assertNotNull(ntnb.calculaVNA());
+
+    }
+
+
 }
