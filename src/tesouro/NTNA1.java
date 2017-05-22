@@ -21,9 +21,9 @@ public class NTNA1 {
 		long diff = Math.abs(dtpData.getTime() - dtupData.getTime());
 		long diffDays = diff / (24 * 60 * 60 * 1000);
 		
-		double fator = ((double)diffDays/360) * (taxaAnual/100);
-		fator = new BigDecimal(fator).setScale(8, RoundingMode.CEILING).doubleValue();
+		double fatorJuros = ((double)diffDays/360) * (taxaAnual/100);
+		fatorJuros = new BigDecimal(fatorJuros).setScale(8, RoundingMode.CEILING).doubleValue();
 		
-		return new BigDecimal(precoUnitario*fator).setScale(6, RoundingMode.FLOOR).doubleValue();
+		return new BigDecimal(precoUnitario*fatorJuros).setScale(6, RoundingMode.FLOOR).doubleValue();
 	}
 }
