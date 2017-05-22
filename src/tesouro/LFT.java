@@ -61,7 +61,18 @@ public class LFT {
         this.VNB = VNB;
     }
 
-    public double calculaVNAA() {
-        return 0;
+    public double calculaVNAA(HashMap<Date, Double> dataSelic, double VE, double DU, double DUt, double tac, double p, double n) {
+
+        double fatorC = calculaFatorC(dataSelic);
+        double taxaFatorUm = 1 + new BigDecimal(tac).divide(new BigDecimal(100), new MathContext(100)).doubleValue();
+        double expoente = new BigDecimal(DU).divide(new BigDecimal(DUt), new MathContext(100)).doubleValue();
+        double taxaFatorUmDia = Math.pow(taxaFatorUm, expoente);
+        double taxaSubtratora = Math.pow((1+tac), expoente);
+        double CxVE = new BigDecimal(fatorC * VE).setScale(TSELIC_TC_PRECISION, RoundingMode.FLOOR).doubleValue();
+        double fatorUm = CxVE * taxaFatorUmDia;
+        double multiplicativo = new BigDecimal(1).divide(new BigDecimal(p-n), new MathContext(100)).doubleValue();
+        double fatorDois = (fatorC * VE * taxaSubtratora) * multiplicativo;
+        double vnaA = fatorUm - fatorDois;
+        return vnaA;
     }
 }
