@@ -36,6 +36,6 @@ public class BTN {
 
 	public double calculaPrincipal() {
 		
-		
+		return 0;
 	}
 }
