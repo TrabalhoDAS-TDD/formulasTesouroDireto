@@ -11,4 +11,9 @@ public class NTNA3 {
 		
 	}
 
+	public double calculaJuros() {
+		
+		return 0;
+	}
+
 }
