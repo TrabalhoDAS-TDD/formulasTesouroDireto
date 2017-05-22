@@ -17,8 +17,8 @@ public class NTNA3Test {
 
 	@Test
 	public void calculaValorNominalTest() {
-		double valorNominal = ntn.calculaValorNominal();
-		assertEquals(0, valorNominal, PRECISION6);
+		double valorNominal = ntn.calculaValorNominal(2.849, 2.512);
+		assertEquals(1134.156050, valorNominal, PRECISION6);
 	}
 
 }
