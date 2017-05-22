@@ -15,7 +15,11 @@ public class NTNBTest {
 
     @Test
     public void calculaFatorNTNBNotNullTest(){
-        assertNotNull(ntnb.calculaFator());
+        double ipca = 0.38;
+        double ipcai = 0.33;
+        double dc = 8;
+        double dct = 16;
+        assertNotNull(ntnb.calculaFator(ipca, ipcai, dc, dct));
     }
 
 }
