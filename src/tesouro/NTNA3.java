@@ -11,7 +11,7 @@ public class NTNA3 {
 		
 	}
 
-	public double calculaJuros() {
+	public double calculaJuros(double dolarA, double dolarB, double taxaAnual, int meses) {
 		
 		return 0;
 	}
