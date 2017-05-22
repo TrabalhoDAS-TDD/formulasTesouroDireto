@@ -9,4 +9,8 @@ public class NTNA1 {
 		double vl = valorEmissao*percentAmortizacao;
 		return new BigDecimal(dolarA/dolarB*vl).setScale(6, RoundingMode.FLOOR).doubleValue();
 	}
+
+	public double calculaJuros() {
+		return 0;
+	}
 }
