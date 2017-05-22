@@ -2,6 +2,8 @@ package tesouro;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,7 +26,7 @@ public class NTNA1Test {
 	}
 	
 	@Test
-	public void calculaJurosTest(){
+	public void calculaJurosTest() throws ParseException{
 		double juros = ntn.calculaJuros("22-03-2017", "29-05-2017", 10.54);
 		assertEquals(18.53694371375, juros, PRECISION6);
 	}
