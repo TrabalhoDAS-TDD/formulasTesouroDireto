@@ -22,7 +22,8 @@ public class NTNA1 {
 		long diffDays = diff / (24 * 60 * 60 * 1000);
 		
 		double fator = ((double)diffDays/360) * (taxaAnual/100);
+		fator = new BigDecimal(fator).setScale(8, RoundingMode.CEILING).doubleValue();
 		
-		return precoUnitario * fator;
+		return new BigDecimal(precoUnitario*fator).setScale(6, RoundingMode.FLOOR).doubleValue();
 	}
 }
