@@ -12,4 +12,8 @@ public class NTNB {
         return Math.pow(base, expoente);
 
     }
+
+    public double calculaVNA() {
+        return 0;
+    }
 }
