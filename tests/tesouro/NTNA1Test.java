@@ -27,7 +27,7 @@ public class NTNA1Test {
 	
 	@Test
 	public void calculaJurosTest() throws ParseException{
-		double juros = ntn.calculaJuros("22-03-2017", "29-05-2017", 10.54);
+		double juros = ntn.calculaJuros("22-03-2017", "29-05-2017", 10.54, 931.0888125);
 		assertEquals(18.53694371375, juros, PRECISION6);
 	}
 }
