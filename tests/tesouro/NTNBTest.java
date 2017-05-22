@@ -29,8 +29,9 @@ public class NTNBTest {
         double ipcai = 0.33;
         double dc = 8;
         double dct = 16;
+        double VN = 1.000231232;
 
-        assertNotNull(ntnb.calculaVNA(ipca, ipcai, dc, dct));
+        assertNotNull(ntnb.calculaVNA(ipca, ipcai, dc, dct, VN));
 
     }
 
