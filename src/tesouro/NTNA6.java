@@ -10,7 +10,7 @@ public class NTNA6 {
 		return valorNominal.setScale(6, RoundingMode.FLOOR).doubleValue();
 	}
 
-	public double calculaJuros() {
+	public double calculaJuros(double dolarA, double dolarB, double valorEmissao, String dtp, String dtup, double taxaAnual) {
 		
 		return 0;
 	}
