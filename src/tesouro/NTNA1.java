@@ -8,7 +8,4 @@ public class NTNA1 {
 		
 		return dolarA/dolarB * VL;
 	}
-
-	
-
 }
