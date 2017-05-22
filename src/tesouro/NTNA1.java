@@ -10,7 +10,7 @@ public class NTNA1 {
 		return new BigDecimal(dolarA/dolarB*vl).setScale(6, RoundingMode.FLOOR).doubleValue();
 	}
 
-	public double calculaJuros() {
+	public double calculaJuros(String dtp, String dtup, double taxaAnual) {
 		return 0;
 	}
 }
