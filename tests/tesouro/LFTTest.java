@@ -89,6 +89,14 @@ public class LFTTest {
         assertNotNull(lft.calculaVNAB(getVnaA(), getDataSelic()));
     }
 
+    @Test
+    public void calculaVnaBArredondamentoTest() throws ParseException {
+
+        assertNotEquals(getVnaA(), 1.2518883633782054, PRECISION10);
+        assertEquals(getVnaA(), 1.2518883633782054, PRECISION6);
+    }
+
+
     public double getVnaA() throws ParseException  {
         double VE = 1.0003123123;
         double DU = 2;
