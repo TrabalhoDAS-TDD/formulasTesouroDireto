@@ -86,7 +86,7 @@ public class LFTTest {
 
     @Test
     public void calculaVnaBNotNullTest() {
-        assertNotNull(lft.calculaVNAB());
+        assertNotNull(lft.calculaVNAB(getVnaA()));
     }
 
     public double getVnaA() throws ParseException  {
