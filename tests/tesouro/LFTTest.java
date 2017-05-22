@@ -78,10 +78,15 @@ public class LFTTest {
     }
 
     @Test
-    public void calculaVnaAArredondamento() throws ParseException {
+    public void calculaVnaAArredondamentoTest() throws ParseException {
 
         assertNotEquals(getVnaA(), 1.2518883633782054, PRECISION10);
         assertEquals(getVnaA(), 1.2518883633782054, PRECISION6);
+    }
+
+    @Test
+    public void calculaVnaBNotNullTest() {
+        assertNotNull(lft.calculaVNAB());
     }
 
     public double getVnaA() throws ParseException  {
