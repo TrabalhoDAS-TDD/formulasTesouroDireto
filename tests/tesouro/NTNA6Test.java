@@ -18,8 +18,8 @@ public class NTNA6Test {
 
 	@Test
 	public void calculaValorNominalAtualizadoTest() {
-		double valorNominal = ntn.calculaValorNominalAtualizado();
-		assertEquals(0, valorNominal, PRECISION6);
+		double valorNominal = ntn.calculaValorNominalAtualizado(2.849, 2.512, 1098.07);
+		assertEquals(1245.382734872611465, valorNominal, PRECISION6);
 	}
 
 }
