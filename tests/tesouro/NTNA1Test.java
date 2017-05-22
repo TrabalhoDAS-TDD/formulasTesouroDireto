@@ -22,5 +22,10 @@ public class NTNA1Test {
 		assertEquals(931.0888125, precoUnitario, PRECISION6);
 		assertNotEquals(931.0888125, precoUnitario, PRECISION8);
 	}
-
+	
+	@Test
+	public void calculaJurosTest(){
+		double juros = ntn.calculaJuros();
+		assertEquals(0, juros, PRECISION6);
+	}
 }
