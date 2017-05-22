@@ -34,8 +34,10 @@ public class BTN {
 		return fatorJuros.setScale(8, RoundingMode.CEILING).doubleValue();
 	}
 
-	public double calculaPrincipal() {
+	public double calculaPrincipal(HashMap<Date,Double> tr, double precoUnitario, int quantidade) {
 		
-		return 0;
+		double principal = this.calculaPrecoUnitario(tr, precoUnitario)*quantidade;
+		
+		return new BigDecimal(principal).setScale(2, RoundingMode.CEILING).doubleValue();
 	}
 }
