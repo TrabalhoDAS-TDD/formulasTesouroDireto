@@ -13,7 +13,7 @@ public class NTNA1 {
 		return new BigDecimal(dolarA/dolarB*vl).setScale(6, RoundingMode.FLOOR).doubleValue();
 	}
 
-	public double calculaJuros(String dtp, String dtup, double taxaAnual) throws ParseException {
+	public double calculaJuros(String dtp, String dtup, double taxaAnual, double precoUnitario) throws ParseException {
 		
 		Date dtpData = new SimpleDateFormat("dd-MM-yyyy").parse(dtp);
 		Date dtupData = new SimpleDateFormat("dd-MM-yyyy").parse(dtup);
@@ -23,6 +23,6 @@ public class NTNA1 {
 		
 		double fator = ((double)diffDays/360) * (taxaAnual/100);
 		
-		return 931.0888125 * fator;
+		return precoUnitario * fator;
 	}
 }
