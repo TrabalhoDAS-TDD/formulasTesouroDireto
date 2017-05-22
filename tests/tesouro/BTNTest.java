@@ -31,7 +31,7 @@ public class BTNTest {
 	@Test
 	public void calculaJurosTest() throws ParseException{
 		double juros = btn.calculaJuros(getTrs(),  2456.23, 10.57, 6);
-		assertEquals(9.668560031775195, juros, PRECISION6);
+		assertEquals(299.8707778836832, juros, PRECISION6);
 		
 	}
 	
