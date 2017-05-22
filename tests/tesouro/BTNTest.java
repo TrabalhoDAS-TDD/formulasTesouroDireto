@@ -24,7 +24,7 @@ public class BTNTest {
 	}
 
 	@Test
-	public void calculaPrecoUnitarioTest() throws java.text.ParseException {
+	public void calculaPrecoUnitarioTest() throws ParseException {
 		double precoUnitario = btn.calculaPrecoUnitario(getTrs(), 2456.23);
 		assertEquals(5820.167027437864, precoUnitario, PRECISION6);
 	}
@@ -48,7 +48,7 @@ public class BTNTest {
 		assertEquals(29100.84, resultadoPrincipal, PRECISION2);
 	}
 	
-	public HashMap<Date, Double> getTrs() throws java.text.ParseException{
+	public HashMap<Date, Double> getTrs() throws ParseException{
 		HashMap<Date, Double> tr = new HashMap<>();
 		
 		
