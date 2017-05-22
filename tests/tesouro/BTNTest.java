@@ -14,6 +14,7 @@ import org.junit.Test;
 public class BTNTest {
 	
 	BTN btn;
+	private static final double PRECISION2 = 0.01;
 	private static final double PRECISION6 = 0.000001;
 	private static final double PRECISION8 = 0.00000001;
 
@@ -39,6 +40,12 @@ public class BTNTest {
 	public void calculaFatorJurosTest(){
 		double fatorJuros = btn.calculaFatorJuros(10.57, 6);
 		assertEquals(0.05152270541344, fatorJuros, PRECISION8);
+	}
+	
+	@Test
+	public void calculaPrincipalTest(){
+		double resultadoPrincipal = btn.calculaPrincipal();
+		assertEquals(0, resultadoPrincipal, PRECISION2);
 	}
 	
 	public HashMap<Date, Double> getTrs() throws java.text.ParseException{

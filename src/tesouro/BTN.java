@@ -33,4 +33,9 @@ public class BTN {
 		
 		return fatorJuros.setScale(8, RoundingMode.CEILING).doubleValue();
 	}
+
+	public double calculaPrincipal() {
+		
+		
+	}
 }
