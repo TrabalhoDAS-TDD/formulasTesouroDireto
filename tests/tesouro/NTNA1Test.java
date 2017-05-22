@@ -18,7 +18,7 @@ public class NTNA1Test {
 	@Test
 	public void calculaPrecoUnitarioAmortizacaoTest() {
 		double precoUnitario = ntn.calculaPrecoUnitarioAmortizacao(2.849, 2.512, 2345.58, 0.35);
-		assertEquals(10550.27117436306, precoUnitario, PRECISION6);
+		assertEquals(931.0888125, precoUnitario, PRECISION6);
 	}
 
 }
