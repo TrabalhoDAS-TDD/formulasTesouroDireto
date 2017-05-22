@@ -75,4 +75,10 @@ public class LFT {
         double vnaA = fatorUm - fatorDois;
         return vnaA;
     }
+
+    public double calculaVNAB() {
+
+        return 0;
+
+    }
 }
