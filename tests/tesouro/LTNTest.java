@@ -18,8 +18,8 @@ public class LTNTest {
 	
 	@Test
 	public void calculaPrecoUnitarioTest() {
-		double precoUnitario = ltn.calculaPrecoUnitario();
-		assertEquals(0, precoUnitario, PRECISION6);
+		double precoUnitario = ltn.calculaPrecoUnitario(9.7351);
+		assertEquals(990.6254920747908, precoUnitario, PRECISION6);
 	}
 
 }
