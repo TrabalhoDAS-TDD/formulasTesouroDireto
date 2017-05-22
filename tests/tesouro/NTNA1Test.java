@@ -8,6 +8,7 @@ import org.junit.Test;
 public class NTNA1Test {
 	
 	NTNA1 ntn;
+	private static final double PRECISION6 = 0.000001;
 
 	@Before
 	public void setUp() throws Exception {
@@ -16,7 +17,8 @@ public class NTNA1Test {
 
 	@Test
 	public void calculaPrecoUnitarioAmortizacaoTest() {
-		fail("Not yet implemented");
+		double precoUnitario = ntn.calculaPrecoUnitarioAmortizacao();
+		assertEquals(0, precoUnitario, PRECISION6);
 	}
 
 }
