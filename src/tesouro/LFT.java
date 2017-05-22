@@ -76,9 +76,10 @@ public class LFT {
         return vnaA;
     }
 
-    public double calculaVNAB() {
+    public double calculaVNAB(double vnaA, HashMap<Date, Double> dataSelic) {
 
-        return 0;
+        System.out.println(calculaVNA(vnaA, dataSelic));
+        return calculaVNA(vnaA, dataSelic);
 
     }
 }
