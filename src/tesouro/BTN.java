@@ -2,8 +2,11 @@ package tesouro;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class BTN {
 	
@@ -16,10 +19,28 @@ public class BTN {
 		return precoUnitario;	
 	}
 
-	public double calculaJuros(double PUAnterior, double TR, double taxaAoAno, int qtdMeses) {
+	public double calculaJuros(HashMap<Date, Double> tr, double precoUnitario, double taxaAoAno, int qtdMeses) throws ParseException {
+		 
+		//Pedaço de código para quando programa estiver rodando
 		
-		double precoUnitario = this.calculaPrecoUnitario(PUAnterior, TR);
+		/*
+		Scanner leia = new Scanner(System.in);
 		
+		String dataEntrada;
+		Double taxaReferencia;
+		
+		for(int i = 0; i < qtdMeses; i++){
+			dataEntrada = leia.nextLine();
+			taxaReferencia = leia.nextDouble();
+			tr.put(new SimpleDateFormat("dd-MM-yyyy").parse(dataEntrada), taxaReferencia);
+		}
+		*/
+		
+		
+		
+		for(Date data : tr.keySet()){
+			precoUnitario *= new BigDecimal(tr.get(data)).setScale(6, RoundingMode.FLOOR).doubleValue();
+		}
 		
 		double fatorJuros = this.calculaFatorJuros(taxaAoAno, qtdMeses);
 		

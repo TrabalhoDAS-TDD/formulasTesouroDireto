@@ -2,6 +2,7 @@ package tesouro;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -23,13 +24,13 @@ public class BTNTest {
 
 	@Test
 	public void calculaPrecoUnitarioTest() throws java.text.ParseException {
-		double precoUnitario = btn.calculaPrecoUnitario(getTr(), 2456.23);
-		assertEquals(11.2676603774, precoUnitario, PRECISION6);
+		double precoUnitario = btn.calculaPrecoUnitario(getTrs(), 2456.23);
+		assertEquals(5820.167027437864, precoUnitario, PRECISION6);
 	}
 	
 	@Test
-	public void calculaJurosTest(){
-		double juros = btn.calculaJuros(2456.23423423,  0.0764, 10.57, 6);
+	public void calculaJurosTest() throws ParseException{
+		double juros = btn.calculaJuros(getTrs(),  2456.23, 10.57, 6);
 		assertEquals(9.668560031775195, juros, PRECISION6);
 		
 	}
@@ -40,13 +41,17 @@ public class BTNTest {
 		assertEquals(0.05152270541344, fatorJuros, PRECISION8);
 	}
 	
-	public HashMap<Date, Double> getTr() throws java.text.ParseException{
+	public HashMap<Date, Double> getTrs() throws java.text.ParseException{
 		HashMap<Date, Double> tr = new HashMap<>();
-		Date data1 = new SimpleDateFormat("dd-MM-yyyy").parse("16-02-2017");
-        Date data2 = new SimpleDateFormat("dd-MM-yyyy").parse("17-03-2017");
-        
-        tr.put(data1, 0.0302);
-        tr.put(data2, 0.1519);
+		
+		
+		//Teste para quantidade de 6 meses
+		tr.put(new SimpleDateFormat("dd-MM-yyyy").parse("01-01-2016"), 1.1320);
+		tr.put(new SimpleDateFormat("dd-MM-yyyy").parse("01-02-2016"), 1.0957);
+		tr.put(new SimpleDateFormat("dd-MM-yyyy").parse("01-03-2016"), 1.2168);
+		tr.put(new SimpleDateFormat("dd-MM-yyyy").parse("01-04-2016"), 1.1304);
+		tr.put(new SimpleDateFormat("dd-MM-yyyy").parse("01-05-2016"), 1.1533);
+		tr.put(new SimpleDateFormat("dd-MM-yyyy").parse("01-06-2016"), 1.2043);
         
         return tr;
 	}
