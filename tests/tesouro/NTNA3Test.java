@@ -18,13 +18,13 @@ public class NTNA3Test {
 	@Test
 	public void calculaValorNominalTest() {
 		double valorNominal = ntn.calculaValorNominal(2.849, 2.512);
-		assertEquals(1134.156050, valorNominal, PRECISION6);
+		assertEquals(1134.156050955414013, valorNominal, PRECISION6);
 	}
 	
 	@Test
 	public void calculaJurosTest(){
-		double juros = ntn.calculaJuros(2.849, 2.512, 10.54, 6);
-		assertEquals(59.770023, juros, PRECISION6);
+		double juros = ntn.calculaJuros(2.849, 2.512, 10.54, 7);
+		assertEquals(69.7316906936465, juros, PRECISION6);
 	}
 
 }

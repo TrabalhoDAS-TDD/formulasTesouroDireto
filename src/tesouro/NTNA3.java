@@ -13,7 +13,11 @@ public class NTNA3 {
 
 	public double calculaJuros(double dolarA, double dolarB, double taxaAnual, int meses) {
 		
-		return 0;
+		BigDecimal fator = new BigDecimal((taxaAnual/100) * ((double)meses/12));
+		fator = fator.setScale(8, RoundingMode.DOWN);
+		double juros = this.calculaValorNominal(dolarA, dolarB) * fator.doubleValue();
+		
+		return new BigDecimal(juros).setScale(6, RoundingMode.FLOOR).doubleValue();
 	}
 
 }
