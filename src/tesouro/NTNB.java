@@ -13,7 +13,11 @@ public class NTNB {
 
     }
 
-    public double calculaVNA() {
-        return 0;
+    public double calculaVNA(double ipca, double ipcai, double dc, double dct, double VN) {
+
+        double fator = calculaFator(ipca, ipcai, dc, dct);
+        double parametroIpca = new BigDecimal(ipca).divide(new BigDecimal(ipcai), new MathContext(100)).doubleValue();
+
+        return fator * parametroIpca * VN;
     }
 }
