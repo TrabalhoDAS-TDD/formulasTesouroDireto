@@ -14,9 +14,9 @@ public class BTN {
 	public double calculaPrecoUnitario(HashMap<Date, Double> tr, double precoUnitario){
 		
 		for(Date data : tr.keySet()){
-			precoUnitario *= new BigDecimal(tr.get(data)).setScale(6, RoundingMode.FLOOR).doubleValue();
+			precoUnitario *= tr.get(data);
 		}
-		return precoUnitario;	
+		return new BigDecimal(precoUnitario).setScale(6, RoundingMode.DOWN).doubleValue();	
 	}
 
 	public double calculaJuros(HashMap<Date, Double> tr, double precoUnitario, double taxaAoAno, int qtdMeses) throws ParseException {
