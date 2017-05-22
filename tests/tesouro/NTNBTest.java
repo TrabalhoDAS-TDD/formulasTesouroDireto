@@ -25,7 +25,12 @@ public class NTNBTest {
     @Test
     public void calculaVNANotNullTest(){
 
-        assertNotNull(ntnb.calculaVNA());
+        double ipca = 0.38;
+        double ipcai = 0.33;
+        double dc = 8;
+        double dct = 16;
+
+        assertNotNull(ntnb.calculaVNA(ipca, ipcai, dc, dct));
 
     }
 
