@@ -34,4 +34,8 @@ public class NTNB {
 
         return new BigDecimal(Math.pow(base, expoenteTotal)).setScale(FATOR_JUROS_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
+
+    public double calculaJuros() {
+        return 0;
+    }
 }
