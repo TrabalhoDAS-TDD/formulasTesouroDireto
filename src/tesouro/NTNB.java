@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 
 public class NTNB {
 
-    private static int VNA_PRECISION = 6;
+    private static int VNA_JUROS_PRECISION = 6;
     private static int FATOR_JUROS_PRECISION = 8;
 
     public double calculaFator(double ipca, double ipcai, double dc, double dct) {
@@ -22,7 +22,7 @@ public class NTNB {
         double fator = calculaFator(ipca, ipcai, dc, dct);
         double parametroIpca = new BigDecimal(ipca).divide(new BigDecimal(ipcai), new MathContext(100)).doubleValue();
 
-        return new BigDecimal(fator * parametroIpca * VN).setScale(VNA_PRECISION, RoundingMode.FLOOR).doubleValue();
+        return new BigDecimal(fator * parametroIpca * VN).setScale(VNA_JUROS_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
 
     public double calculaFatorJuros(double i, double n, double dcp, double dct) {
@@ -37,8 +37,7 @@ public class NTNB {
 
     public double calculaJuros(double vna, double fatorJuros) {
 
-        System.out.println(vna * (fatorJuros -1));
-        return vna * (fatorJuros -1);
+        return new BigDecimal(vna * (fatorJuros -1)).setScale(VNA_JUROS_PRECISION, RoundingMode.FLOOR).doubleValue();
 
     }
 }
