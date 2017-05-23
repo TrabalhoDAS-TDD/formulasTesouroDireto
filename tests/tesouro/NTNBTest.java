@@ -59,9 +59,22 @@ public class NTNBTest {
     @Test
     public void calculaJurosNotNullTest(){
 
-        double vna = 1.00031;
-        assertNotNull(ntnb.calculaJuros(vna, getFatorJuros()));
+        assertNotNull(getJuros());
 
+    }
+
+    @Test
+    public void calculaJurosArredondamentoTest(){
+
+        assertNotEquals(getJuros(), 0.0003612619565000323, PRECISION10);
+        assertEquals(getJuros(), 0.0003612619565000323, PRECISION8);
+
+    }
+
+    public double getJuros(){
+
+        double vna = 1.00031;
+        return ntnb.calculaJuros(vna, getFatorJuros());
     }
 
     public double getFatorJuros(){
