@@ -49,11 +49,16 @@ public class NTNBTest {
     }
 
     @Test
-    public void calculaFatorJurosArredondamento(){
+    public void calculaFatorJurosArredondamentoTest(){
 
         assertNotEquals(getFatorJuros(), 1.0003611538246018, PRECISION10);
         assertEquals(getFatorJuros(), 1.0003611538246018, PRECISION8);
 
+    }
+
+    @Test
+    public void calculaJurosNotNullTest(){
+        assertNotNull(ntnb.calculaJuros());
     }
 
     public double getFatorJuros(){
