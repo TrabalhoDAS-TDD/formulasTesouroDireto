@@ -58,7 +58,10 @@ public class NTNBTest {
 
     @Test
     public void calculaJurosNotNullTest(){
-        assertNotNull(ntnb.calculaJuros());
+
+        double vna = 1.00031;
+        assertNotNull(ntnb.calculaJuros(vna, getFatorJuros()));
+
     }
 
     public double getFatorJuros(){
