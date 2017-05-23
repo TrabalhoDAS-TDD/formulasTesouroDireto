@@ -7,6 +7,7 @@ import java.math.RoundingMode;
 public class NTNB {
 
     private static int VNA_PRECISION = 6;
+    private static int FATOR_JUROS_PRECISION = 8;
 
     public double calculaFator(double ipca, double ipcai, double dc, double dct) {
 
@@ -31,6 +32,6 @@ public class NTNB {
         double taxa = new BigDecimal(i).divide(new BigDecimal(100)).doubleValue() + 1;
         double base = Math.pow(taxa, expoenteInterno);
 
-        return Math.pow(base, expoenteTotal);
+        return new BigDecimal(Math.pow(base, expoenteTotal)).setScale(FATOR_JUROS_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
 }
