@@ -24,7 +24,13 @@ public class NTNB {
         return new BigDecimal(fator * parametroIpca * VN).setScale(VNA_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
 
-    public double calculaFatorJuros() {
-        return 0;
+    public double calculaFatorJuros(double i, double n, double dcp, double dct) {
+
+        double expoenteTotal = new BigDecimal(dcp).divide(new BigDecimal(dct), new MathContext(100)).doubleValue();
+        double expoenteInterno = new BigDecimal(n).divide(new BigDecimal(12), new MathContext(100)).doubleValue();
+        double taxa = new BigDecimal(i).divide(new BigDecimal(100)).doubleValue() + 1;
+        double base = Math.pow(taxa, expoenteInterno);
+
+        return Math.pow(base, expoenteTotal);
     }
 }
