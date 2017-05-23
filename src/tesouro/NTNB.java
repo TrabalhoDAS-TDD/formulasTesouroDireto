@@ -23,4 +23,8 @@ public class NTNB {
 
         return new BigDecimal(fator * parametroIpca * VN).setScale(VNA_PRECISION, RoundingMode.FLOOR).doubleValue();
     }
+
+    public double calculaFatorJuros() {
+        return 0;
+    }
 }
