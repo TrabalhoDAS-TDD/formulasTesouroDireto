@@ -40,6 +40,13 @@ public class NTNBTest {
 
     }
 
+    @Test
+    public void calculaFatorJurosNotNull(){
+
+        assertNotNull(ntnb.calculaFatorJuros());
+
+    }
+
 
     public double getCalculoVNA(){
         double ipca = 0.38;
