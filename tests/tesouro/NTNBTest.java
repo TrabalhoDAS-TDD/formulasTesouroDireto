@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 public class NTNBTest {
 
     private static final double PRECISION10 = 0.0000000001;
+    private static final double PRECISION8 = 0.00000001;
     private static final double PRECISION6 = 0.000001;
 
     private  NTNB ntnb;
@@ -43,12 +44,26 @@ public class NTNBTest {
     @Test
     public void calculaFatorJurosNotNull(){
 
-        double i = 0,34;
+        assertNotNull(getFatorJuros());
+
+    }
+
+    @Test
+    public void calculaFatorJurosArredondamento(){
+
+        assertNotEquals(getFatorJuros(), 1.0003611538246018, PRECISION10);
+        assertEquals(getFatorJuros(), 1.0003611538246018, PRECISION8);
+
+    }
+
+    public double getFatorJuros(){
+
+        double i = 0.34;
         double n = 2;
         double dcp = 30;
         double dct = 47;
 
-        assertNotNull(ntnb.calculaFatorJuros(i, n, dcp, dct));
+        return  ntnb.calculaFatorJuros(i, n, dcp, dct);
 
     }
 
