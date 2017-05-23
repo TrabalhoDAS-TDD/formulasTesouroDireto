@@ -15,8 +15,10 @@ public class BTNTest {
 	
 	BTN btn;
 	private static final double PRECISION2 = 0.01;
+	private static final double PRECISION4 = 0.0001;
 	private static final double PRECISION6 = 0.000001;
 	private static final double PRECISION8 = 0.00000001;
+	private static final double PRECISION10 = 0.0000000001;
 
 	@Before
 	public void setUp() throws Exception {
@@ -27,25 +29,28 @@ public class BTNTest {
 	public void calculaPrecoUnitarioTest() throws ParseException {
 		double precoUnitario = btn.calculaPrecoUnitario(getTrs(), 2456.23);
 		assertEquals(5820.167027437864, precoUnitario, PRECISION6);
+		assertNotEquals(5820.167027437864, precoUnitario, PRECISION8);
 	}
 	
 	@Test
 	public void calculaJurosTest() throws ParseException{
 		double juros = btn.calculaJuros(getTrs(),  2456.23, 10.57, 6);
 		assertEquals(299.8707778836832, juros, PRECISION6);
-		
+		assertNotEquals(299.8707778836832, juros, PRECISION8);
 	}
 	
 	@Test
 	public void calculaFatorJurosTest(){
 		double fatorJuros = btn.calculaFatorJuros(10.57, 6);
 		assertEquals(0.05152270541344, fatorJuros, PRECISION8);
+		assertNotEquals(0.05152270541344, fatorJuros, PRECISION10);
 	}
 	
 	@Test
 	public void calculaPrincipalTest() throws ParseException{
 		double resultadoPrincipal = btn.calculaPrincipal(getTrs(), 2456.23, 5);
-		assertEquals(29100.84, resultadoPrincipal, PRECISION2);
+		assertEquals(29100.83513718932, resultadoPrincipal, PRECISION2);
+		assertNotEquals(29100.83513718932, resultadoPrincipal, PRECISION4);
 	}
 	
 	public HashMap<Date, Double> getTrs() throws ParseException{
