@@ -6,6 +6,9 @@ import static org.junit.Assert.*;
 
 public class NTNBTest {
 
+    private static final double PRECISION10 = 0.0000000001;
+    private static final double PRECISION6 = 0.000001;
+
     private  NTNB ntnb;
 
     @Before
@@ -25,15 +28,27 @@ public class NTNBTest {
     @Test
     public void calculaVNANotNullTest(){
 
+        assertNotNull(getCalculoVNA());
+
+    }
+
+    @Test
+    public void calculaVNAArredondamentoTest(){
+
+        assertNotEquals(getCalculoVNA(), 1.2359613677234655, PRECISION10);
+        assertEquals(getCalculoVNA(), 1.2359613677234655, PRECISION6);
+
+    }
+
+
+    public double getCalculoVNA(){
         double ipca = 0.38;
         double ipcai = 0.33;
         double dc = 8;
         double dct = 16;
         double VN = 1.000231232;
 
-        assertNotNull(ntnb.calculaVNA(ipca, ipcai, dc, dct, VN));
-
+        return ntnb.calculaVNA(ipca, ipcai, dc, dct, VN);
     }
-
 
 }
