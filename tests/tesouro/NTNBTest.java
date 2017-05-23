@@ -43,7 +43,12 @@ public class NTNBTest {
     @Test
     public void calculaFatorJurosNotNull(){
 
-        assertNotNull(ntnb.calculaFatorJuros());
+        double i = 0,34;
+        double n = 2;
+        double dcp = 30;
+        double dct = 47;
+
+        assertNotNull(ntnb.calculaFatorJuros(i, n, dcp, dct));
 
     }
 
